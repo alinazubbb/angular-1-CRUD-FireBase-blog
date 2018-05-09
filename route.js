@@ -1,11 +1,11 @@
 function route($routeProvider) {
 	// 
 	$routeProvider
-		.when("https://alinazubbb.github.io/blog/", {
+		.when("/", {
 			templateUrl: "templates/posts.html",
 			controller: "MainCtrl"
 		})
-		.when("https://alinazubbb.github.io/blog/post/:postId", {
+		.when("/post/:postId", {
 			templateUrl: "templates/post.html",
 			controller: "PostCtrl"
 		});
