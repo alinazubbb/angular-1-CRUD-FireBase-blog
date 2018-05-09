@@ -1,0 +1,96 @@
+<a href="/" class="btn btn-primary  btn-lg space-bottom">BACK</a>
+<div class="list-group-item d-flex justify-content-between row">
+	<div class="col-8" ng-show="(!showEditPost)">
+		<a href="#!posts" ng-click="curPost(post)">
+			<h2>#{{post.id}} - <u>Post Title: {{post.title}}</u></h2>
+		</a>
+	</div>
+	<div class="button-group" ng-show="(!showEditPost)">
+		<button class="btn btn-warning btn-sm" ng-click="showEditPost=!showEditPost;">
+			Edit Post
+		</button>
+		<button class="btn btn-danger btn-sm" ng-click="posts.$remove(post)">
+			Delete Post</button>
+	</div>
+	<!-- POST VIEW -->
+	<div ng-show="(!showEditPost)" class="col-12">
+		<div>Description: {{post.description}}</div>
+		<div><em>Post Date: {{post.date}}</em></div>
+	</div>
+	<!-- POST EDIT -->
+	<div ng-show="(showEditPost)" class="col-12">
+		<form ng-submit="editPost(post);showEditPost=!showEditPost;">
+			<p>
+				Post Title:
+				<input required type="text" ng-model='post.title' ">
+			</p>
+			<p>
+				Description: <input required type="text " ng-model='post.description'>
+			</p>
+			<button class="btn btn-success btn-sm " >Save</button>
+		</form>
+	</div>
+	<div class="col-12 " ng-show="(!showEditPost) ">
+	<div class="row ">
+		<div class="col-6 ">
+			<hr>
+			<h4 ng-show="post.comments ">Comments</h4>
+			<!-- COMMENTS LIST -->
+			<ul ng-repeat="item in post.comments " class="list-group ">
+				<li class="list-group-item ">
+					<!-- COMMENT VIEW -->
+					<div class="row " ng-show="!showEditComment ">
+						<div class="col-8 ">
+							#{{post.id}}.{{$index+1}}
+							<div>
+								user: {{item.commentUser}}
+								<hr> text: {{item.commentText}}
+							</div>
+						</div>
+						<div class="btn-group col-4 ">
+							<button class="btn btn-warning btn-sm " ng-click="showEditComment=!showEditComment ">
+								EDIT
+							</button>
+							<button class="btn btn-danger btn-sm " ng-click="removeComment(post, comment, item) ">
+								DELETE
+							</button>
+						</div>
+					</div>
+					<!-- COMMENT EDIT VIEW -->
+					<form ng-submit="editComment(post, item);showEditComment=! showEditComment; " ng-show="showEditComment " class='row'>
+						<div class="col-8 ">
+							<p>
+								<input ng-model='item.commentUser' class="form-control " placeholder="Enter your name ">
+							</p>
+							<p>
+								<input ng-model='item.commentText' class="form-control " placeholder="Enter comment ">
+							</p>
+						</div>
+						<div class="col-4 btn-group ">
+							<button class="btn btn-success btn-sm " ng-click="editComment(post,item,commentUser,commentText); ">SAVE</button>
+						</div>
+					</form>
+				</li>
+			</ul>
+		</div>
+		<!-- ADD NEW COMMENT -->
+		<div class="col-6 ">
+			<hr>
+			<form ng-submit="addComment(post) ">
+				<h4>Write your comment</h4>
+				<div>
+					<div class="form-group ">
+						<input required ng-model="post.commentUser " class="form-control " placeholder="Enter your name " />
+					</div>
+					<div class="form-group ">
+						<input required ng-model="post.commentText " class="form-control " placeholder="Enter your comment " />
+					</div>
+				</div>
+				<div class="form-group ">
+					<button class="btn btn-success btn-block ">Add Comment</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
