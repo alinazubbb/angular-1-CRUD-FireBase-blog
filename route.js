@@ -8,6 +8,8 @@ function route($routeProvider) {
 		.when("/post/:postId", {
 			templateUrl: "templates/post.html",
 			controller: "PostCtrl"
+		}).otherwise({
+			redirectTo: '/'
 		});
 	// 
 }

@@ -1,9 +1,7 @@
-<a href="/" class="btn btn-primary  btn-lg space-bottom">BACK</a>
+<a href="{{baseUrl}}" class="btn btn-primary  btn-lg space-bottom">BACK</a>
 <div class="list-group-item d-flex justify-content-between row">
 	<div class="col-8" ng-show="(!showEditPost)">
-		<a href="#!posts" ng-click="curPost(post)">
-			<h2>#{{post.id}} - <u>Post Title: {{post.title}}</u></h2>
-		</a>
+		<h2>#{{post.id}} - <u>Post Title: {{post.title}}</u></h2>
 	</div>
 	<div class="button-group" ng-show="(!showEditPost)">
 		<button class="btn btn-warning btn-sm" ng-click="showEditPost=!showEditPost;">
@@ -48,10 +46,10 @@
 							</div>
 						</div>
 						<div class="btn-group col-4 ">
-							<button class="btn btn-warning btn-sm " ng-click="showEditComment=!showEditComment ">
+							<button class="btn btn-warning btn-sm " ng-click="showEditComment=!showEditComment">
 								EDIT
 							</button>
-							<button class="btn btn-danger btn-sm " ng-click="removeComment(post, comment, item) ">
+							<button class="btn btn-danger btn-sm " ng-click="removeComment(post, comment, item)">
 								DELETE
 							</button>
 						</div>
