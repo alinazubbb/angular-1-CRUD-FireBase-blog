@@ -15,15 +15,8 @@
 		margin-bottom: 15px;
 	}
 	</style>
-	<script>
-	(function() {
-		var redirect = sessionStorage.redirect;
-		delete sessionStorage.redirect;
-		if (redirect && redirect != location.href) {
-			history.replaceState(null, null, redirect);
-		}
-	})();
-	</script>
+	<script>document.write('<base href="' + document.location + '" />');</script>
+
 	<!-- Angular -->
 	<script src="https://code.angularjs.org/1.6.1/angular.min.js"></script>
 	<script src="https://code.angularjs.org/1.6.1/angular-route.min.js"></script>
