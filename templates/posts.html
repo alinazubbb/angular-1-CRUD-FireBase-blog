@@ -24,7 +24,7 @@
 <ul ng-hide="(addPostFormShow)" class="list-group">
 	<li ng-repeat="post in posts" class="list-group-item d-flex justify-content-between row">
 		<div class="col-8" ng-show="(!showEditPost)">
-			<a href="{{baseUrl}}#!post/{{post.key}}"">
+			<a href="{{baseUrl}}post/{{post.key}}"">
 				<h2>#{{post.id}} - <u>Post Title: {{post.title}}</u></h2>
 			</a>
 		</div>
