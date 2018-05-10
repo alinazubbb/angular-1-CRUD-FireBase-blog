@@ -3,13 +3,6 @@
 	<div class="col-8" ng-show="(!showEditPost)">
 		<h2>#{{post.id}} - <u>Post Title: {{post.title}}</u></h2>
 	</div>
-	<div class="button-group" ng-show="(!showEditPost)">
-		<button class="btn btn-warning btn-sm" ng-click="showEditPost=!showEditPost;">
-			Edit Post
-		</button>
-		<button class="btn btn-danger btn-sm" ng-click="posts.$remove(post)">
-			Delete Post</button>
-	</div>
 	<!-- POST VIEW -->
 	<div ng-show="(!showEditPost)" class="col-12">
 		<div>Description: {{post.description}}</div>
