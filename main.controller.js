@@ -1,7 +1,9 @@
-function MainCtrl($scope, $filter, $firebaseArray, BlogService) {
+function MainCtrl($scope, $filter, $firebaseArray, $window, BlogService) {
 	// 
 	$scope.newPostTitle = '';
 	$scope.newPostDescription = '';
+	$scope.baseUrl = $window.location.href;
+	console.log($scope.baseUrl);
 	
 	$scope.posts = BlogService.posts;
 	$scope.addPostFormShow = BlogService.addPostFormShow;
